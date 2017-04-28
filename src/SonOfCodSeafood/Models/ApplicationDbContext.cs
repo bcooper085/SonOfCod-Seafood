@@ -14,8 +14,8 @@ namespace SonOfCodSeafood.Models
 
         }
 
-        public virtual DbSet<MailingList> MailingList { get; set; }
-        public virtual DbSet<Newsletter> Newsletter { get; set; }
+        public virtual DbSet<MailingList> MailingLists { get; set; }
+        public virtual DbSet<Newsletter> Newsletters { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

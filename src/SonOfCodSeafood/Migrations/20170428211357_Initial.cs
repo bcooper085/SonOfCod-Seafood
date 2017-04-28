@@ -155,15 +155,15 @@ namespace SonOfCodSeafood.Migrations
                     MailingListId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserEmail = table.Column<string>(nullable: true),
-                    UserName = table.Column<string>(nullable: true),
-                    userId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MailingLists", x => x.MailingListId);
                     table.ForeignKey(
-                        name: "FK_MailingLists_AspNetUsers_userId",
-                        column: x => x.userId,
+                        name: "FK_MailingLists_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -178,14 +178,14 @@ namespace SonOfCodSeafood.Migrations
                     Body = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
-                    userId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Newsletters", x => x.NewsletterId);
                     table.ForeignKey(
-                        name: "FK_Newsletters_AspNetUsers_userId",
-                        column: x => x.userId,
+                        name: "FK_Newsletters_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -222,14 +222,14 @@ namespace SonOfCodSeafood.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MailingLists_userId",
+                name: "IX_MailingLists_UserId",
                 table: "MailingLists",
-                column: "userId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Newsletters_userId",
+                name: "IX_Newsletters_UserId",
                 table: "Newsletters",
-                column: "userId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",

@@ -15,6 +15,6 @@ namespace SonOfCodSeafood.Models
         public string Title { get; set; }
         public string Body { get; set; }
         public string Image { get; set; }
-        public virtual User user { get; set; }
+        public virtual User User { get; set; }
     }
 }

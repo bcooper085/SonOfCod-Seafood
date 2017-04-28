@@ -130,13 +130,13 @@ namespace SonOfCodSeafood.Migrations
 
                     b.Property<string>("UserEmail");
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("UserId");
 
-                    b.Property<string>("userId");
+                    b.Property<string>("UserName");
 
                     b.HasKey("MailingListId");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("MailingLists");
                 });
@@ -152,11 +152,11 @@ namespace SonOfCodSeafood.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<string>("userId");
+                    b.Property<string>("UserId");
 
                     b.HasKey("NewsletterId");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Newsletters");
                 });
@@ -249,16 +249,16 @@ namespace SonOfCodSeafood.Migrations
 
             modelBuilder.Entity("SonOfCodSeafood.Models.MailingList", b =>
                 {
-                    b.HasOne("SonOfCodSeafood.Models.User", "user")
+                    b.HasOne("SonOfCodSeafood.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("userId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("SonOfCodSeafood.Models.Newsletter", b =>
                 {
-                    b.HasOne("SonOfCodSeafood.Models.User", "user")
+                    b.HasOne("SonOfCodSeafood.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("userId");
+                        .HasForeignKey("UserId");
                 });
         }
     }

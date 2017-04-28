@@ -24,7 +24,7 @@ namespace SonOfCodSeafood.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Newsletter.ToList());
+            return View(_db.Newsletters.ToList());
         }
 
         public IActionResult Register()

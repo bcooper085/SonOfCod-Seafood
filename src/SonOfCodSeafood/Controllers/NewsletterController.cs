@@ -24,7 +24,7 @@ namespace SonOfCodSeafood.Controllers
         }
         public IActionResult Index()
         {
-            return View(_db.Newsletter.ToList());
+            return View(_db.Newsletters.ToList());
         }
 
         public IActionResult Create()
@@ -38,39 +38,42 @@ namespace SonOfCodSeafood.Controllers
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             newsletter.User = currentUser;
-            _db.Newsletter.Add(newsletter);
+            _db.Newsletters.Add(newsletter);
             _db.SaveChanges();
             return RedirectToAction("Index", "Account");
         }
 
         public IActionResult Details(int id)
         {
-            var thisNewsLetter = _db.Newsletter.FirstOrDefault(newsLetters => newsLetters.NewsletterId == id);
-            return View(thisNewsLetter);
+            var thisNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.NewsletterId == id);
+            return View(thisNewsletter);
         }
 
         public IActionResult Edit(int id)
         {
-            var thisNewsLetter = _db.Newsletter.FirstOrDefault(newsLetter => newsLetter.NewsletterId == id);
-            return View(thisNewsLetter);
+            var thisNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.NewsletterId == id);
+            return View(thisNewsletter);
         }
+
         [HttpPost]
-        public IActionResult Edit(Newsletter newsLetter)
+        public IActionResult Edit(Newsletter newsletter)
         {
-            _db.Entry(newsLetter).State = EntityState.Modified;
+            _db.Entry(newsletter).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Index", "Account");
         }
+
         public ActionResult Delete(int id)
         {
-            var thisNewsLetter = _db.Newsletter.FirstOrDefault(newsLetter => newsLetter.NewsletterId == id);
-            return View(thisNewsLetter);
+            var thisNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.NewsletterId == id);
+            return View(thisNewsletter);
         }
+
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisNewsLetter = _db.Newsletter.FirstOrDefault(newsLetter => newsLetter.NewsletterId == id);
-            _db.Newsletter.Remove(thisNewsLetter);
+            var thisNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.NewsletterId == id);
+            _db.Newsletters.Remove(thisNewsletter);
             _db.SaveChanges();
             return RedirectToAction("Index", "Account");
         }

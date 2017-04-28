@@ -14,6 +14,6 @@ namespace SonOfCodSeafood.Models
         public int MailingListId { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
-        public virtual User user { get; set; }
+        public virtual User User { get; set; }
     }
 }
