@@ -33,7 +33,7 @@ namespace SonOfCodSeafood.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register (RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             var user = new User { UserName = model.Email };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
@@ -45,6 +45,26 @@ namespace SonOfCodSeafood.Controllers
             {
                 return View();
             }
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }
