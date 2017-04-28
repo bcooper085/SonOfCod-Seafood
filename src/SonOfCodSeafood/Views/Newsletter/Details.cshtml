@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Newsletter - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model SonOfCodSeafood.Models.Newsletter
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Edit or Delete @Html.DisplayNameFor(model => model.Title) Details</h2>
+    <div>@Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterId }, null) | @Html.ActionLink("Delete", "Delete", new { id = Model.NewsletterId }, null)</div>
+    <hr />
+    <div class="row">
+        @Html.DisplayNameFor(model => model.Title)
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="row">
+        <img src="@Url.Content(Model.Image)" alt="Image" />
+    </div>
+    @Html.DisplayNameFor(model => model.Body)
+    @Html.DisplayFor(model => model.Body)
+}
+
+else
+{
+    <div class="row">
+        @Html.DisplayNameFor(model => model.Title)
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="row">
+        <img src="@Url.Content(Model.Image)" alt="Image" />
+    </div>
+    @Html.DisplayNameFor(model => model.Body)
+    @Html.DisplayFor(model => model.Body)
 }
