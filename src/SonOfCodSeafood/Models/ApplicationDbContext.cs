@@ -13,5 +13,13 @@ namespace SonOfCodSeafood.Models
         {
 
         }
+
+        public virtual DbSet<MailingList> MailingList { get; set; }
+        public virtual DbSet<Newsletter> Newsletter { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SonOfCodSeafood;integrated security=True");
+        }
     }
 }
