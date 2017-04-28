@@ -13,11 +13,12 @@
             <div class="nav-wrapper">
                 <a>@Html.ActionLink("Son of Cod", "Index", "Home")</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                   <li>@Html.ActionLink("Register for our Newsletter", "Create", "Newsletter"</li>
+                   <li>@Html.ActionLink("Register for our Newsletter", "Create", "Newsletter")</li>
                      
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Newletter", "Create", "Account")</li>
+                        <li>@Html.ActionLink("Newsletter", "Create", "Account")</li>
+                        <li>@Html.ActionLink("Mailing List", "Details", "Account")</li>
                         <li>@Html.ActionLink(User.Identity.Name, "Index", "Posts")</li>
                         
                         @using (Html.BeginForm("LogOff", "Account"))
