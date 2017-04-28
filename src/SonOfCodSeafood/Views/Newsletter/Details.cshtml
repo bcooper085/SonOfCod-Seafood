@@ -1,19 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "Newsletter - Details";
+    ViewData["Title"] = "News Letter - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model SonOfCodSeafood.Models.Newsletter
 
-<h2>Post Details</h2>
-<div>@Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterId }, null) | @Html.ActionLink("Delete", "Delete", new { id = Model.NewsletterId }, null)</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div>
+        <h2>@Html.DisplayFor(model => model.Title) Details</h2>
+        <div>@Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterId }, null)</div>
+        <div>@Html.ActionLink("Delete", "Delete", new { id = Model.NewsletterId }, null)</div>
+    </div>
+    <div>
+        <div class="row">
+            @Html.DisplayFor(model => model.Title)
+        </div>
 
-<div class="row">
-    @Html.DisplayNameFor(model => model.Title)
-    @Html.DisplayFor(model => model.Title)
-</div>
+        <div class="row">
+            <img src="@Url.Content(Model.Image)" alt="Image" />
+        </div>
+        <div class="row">
+            @Html.DisplayFor(model => model.Body)
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <div class="row">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+        <div class="row">
+            <img src="@Url.Content(Model.Image)" alt="Image" />
+        </div>
+        <div class="row">
+            @Html.DisplayFor(model => model.Body)
+        </div>
+    </div>
 
-<div class="row">
-    <img src="@Url.Content(Model.Image)" alt="Image" />
-</div>
-@Html.DisplayNameFor(model => model.Body)
-@Html.DisplayFor(model => model.Body)
+}

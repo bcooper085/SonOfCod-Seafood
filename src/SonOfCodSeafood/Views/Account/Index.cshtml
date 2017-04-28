@@ -4,9 +4,10 @@
 }
 
 @using System.Security.Claims
+
 @model IEnumerable<SonOfCodSeafood.Models.Newsletter>
 
 @foreach (var newsletter in Model)
 {
-    <h2>@Html.ActionLink(newsletter.Title, "Details", "Newsletter")</h2>
+    <h2>@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</h2>
 }

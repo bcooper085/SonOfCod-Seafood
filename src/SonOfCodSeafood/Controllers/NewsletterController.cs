@@ -30,6 +30,12 @@ namespace SonOfCodSeafood.Controllers
             return View();
         }
 
+        public IActionResult Details(int id)
+        {
+            var thisNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.NewsletterId == id);
+            return View(thisNewsletter);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(Newsletter newsletter)
         {
@@ -39,12 +45,6 @@ namespace SonOfCodSeafood.Controllers
             _db.Newsletters.Add(newsletter);
             _db.SaveChanges();
             return RedirectToAction("Index", "Account");
-        }
-
-        public IActionResult Details(int id)
-        {
-            var thisNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.NewsletterId == id);
-            return View(thisNewsletter);
         }
 
         public IActionResult Edit(int id)

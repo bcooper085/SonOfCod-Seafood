@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Mailing List - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+@model IEnumerable<SonOfCodSeafood.Models.MailingList>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @foreach (var mailingList in Model)
+    {
+        <div class="container">
+            <div>
+                @Html.ActionLink(mailingList.UserEmail, "Details", "MialingList", new { id = mailingList.MailingListId })
+            </div>
+        </div>
+    }
+}
