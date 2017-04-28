@@ -13,9 +13,24 @@
             <div class="nav-wrapper">
                 <a>@Html.ActionLink("Son of Cod", "Index", "Home")</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                   <li>@Html.ActionLink("Register for our Newsletter", "Create", "Newsletter"</li>
+                     
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Newletter", "Create", "Account")</li>
+                        <li>@Html.ActionLink(User.Identity.Name, "Index", "Posts")</li>
+                        
+                        @using (Html.BeginForm("LogOff", "Account"))
+                        {
+                            <li><input type="submit" id="logout" value="Logout" /></li>
+                        }
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Register", "Register")</li>
+                        <li>@Html.ActionLink("Login", "Login")</li>
+                    }
                 </ul>
             </div>
         </nav>
