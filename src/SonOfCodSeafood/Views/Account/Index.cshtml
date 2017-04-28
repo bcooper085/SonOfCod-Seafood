@@ -4,15 +4,9 @@
 }
 
 @using System.Security.Claims
+@model IEnumerable<SonOfCodSeafood.Models.Newsletter>
 
-<h2>Authentication with Identity</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
+@foreach (var newsletter in Model)
 {
-    <p>Hello @User.Identity.Name!</p>
-}
-else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
+    <h2>@Html.ActionLink(newsletter.Title, "Details", "Newsletter"</h2>
 }
