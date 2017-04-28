@@ -66,5 +66,12 @@ namespace SonOfCodSeafood.Controllers
             }
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

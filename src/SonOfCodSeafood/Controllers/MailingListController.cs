@@ -9,7 +9,7 @@ namespace SonOfCodSeafood.Controllers
 {
     public class MailingListController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Create()
         {
             return View();
         }

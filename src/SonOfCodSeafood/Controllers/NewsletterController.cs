@@ -14,12 +14,10 @@ namespace SonOfCodSeafood.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
 
-        public NewsletterController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext db)
+        public NewsletterController(UserManager<User> userManager, ApplicationDbContext db)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _db = db;
         }
         public IActionResult Index()
