@@ -4,8 +4,9 @@
 }
 @model SonOfCodSeafood.Models.MailingList
 
-<h2>Join Mailing List</h2>
-
+<h3>Enjoy the Fishy Freshness of our Mailing List</h3>
+<h2>Join Now!</h2>
+<hr />
 
 @using (Html.BeginForm())
 {
@@ -15,5 +16,5 @@
     @Html.LabelFor(model => model.UserEmail)
     @Html.EditorFor(model => model.UserEmail)
 
-    <input type="submit" value="Join" class="btn btn-default" />
+    <input type="submit" value="Join" class="waves-effect waves-light btn" />
 }

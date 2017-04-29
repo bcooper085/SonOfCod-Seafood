@@ -11,7 +11,7 @@
     <div>
         <nav>
             <div class="nav-wrapper">
-                <a>@Html.ActionLink("Son of Cod", "Index", "Home")</a>
+                <span class="title">@Html.ActionLink("Son of Cod", "Index", "Home")</span>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                    <li>@Html.ActionLink("Join Newsletter", "Create", "MailingList")</li>
                      
@@ -23,7 +23,7 @@
                         <li>
                             @using (Html.BeginForm("LogOff", "Account"))
                             {
-                                <input type="submit" id="logout" value="Logout" />
+                                <input type="submit" id="logout" value="Logout" class="waves-effect waves-light btn"/>
 
                             }
                         </li>
