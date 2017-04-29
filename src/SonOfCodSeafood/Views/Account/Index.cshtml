@@ -7,7 +7,13 @@
 
 @model IEnumerable<SonOfCodSeafood.Models.Newsletter>
 
-@foreach (var newsletter in Model)
-{
-    <h2>@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</h2>
-}
+<div class="row">
+    <h1>Newsletters</h1>
+    @foreach (var newsletter in Model)
+    {
+        <div class="col s4">
+            <h2>@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</h2>
+        </div>
+    }
+</div>
+
