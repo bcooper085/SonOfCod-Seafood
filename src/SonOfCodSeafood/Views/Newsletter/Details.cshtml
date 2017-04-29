@@ -4,38 +4,46 @@
 }
 @model SonOfCodSeafood.Models.Newsletter
 
+<h2>@Html.DisplayFor(model => model.Title) Newsletter</h2>
 @if (User.Identity.IsAuthenticated)
 {
     <div>
-        <h2>@Html.DisplayFor(model => model.Title) Details</h2>
-        <div>@Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterId }, null)</div>
-        <div>@Html.ActionLink("Delete", "Delete", new { id = Model.NewsletterId }, null)</div>
+        <h4>@Html.ActionLink("Edit", "Edit", new { id = Model.NewsletterId }, null) | @Html.ActionLink("Delete", "Delete", new { id = Model.NewsletterId }, null)</h4>
     </div>
-    <div>
-        <div class="row">
-            @Html.DisplayFor(model => model.Title)
-        </div>
-
-        <div class="row">
-            <img src="@Url.Content(Model.Image)" alt="Image" />
-        </div>
-        <div class="row">
-            @Html.DisplayFor(model => model.Body)
+    <div class="row">
+        <div class="col s12 m8">
+            <div class="card">
+                <div class="card-image">
+                    <img src="@Url.Content(Model.Image)" alt="Image" />
+                    <span class="card-title">@Html.DisplayFor(model => model.Title)</span>
+                    <div class="card-content card-content grey lighten-4">
+                        <p>
+                            @Html.DisplayFor(model => model.Body)
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 }
 else
 {
-    <div>
-        <div class="row">
-            @Html.DisplayFor(model => model.Title)
-        </div>
-        <div class="row">
-            <img src="@Url.Content(Model.Image)" alt="Image" />
-        </div>
-        <div class="row">
-            @Html.DisplayFor(model => model.Body)
+    <div class="row">
+        <div class="col s12 m8">
+            <div class="card">
+                <div class="card-image">
+                    <img src="@Url.Content(Model.Image)" alt="Image" />
+                    <span class="card-title">@Html.DisplayFor(model => model.Title)</span>
+                    <div class="card-content card-content grey lighten-4">
+                        <p>
+                            @Html.DisplayFor(model => model.Body)
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
+        
 
 }

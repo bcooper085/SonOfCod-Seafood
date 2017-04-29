@@ -7,17 +7,21 @@
 
 @model IEnumerable<SonOfCodSeafood.Models.Newsletter>
 
+<h1>Newsletters</h1>
 <div class="row">
-    <h1>Newsletters</h1>
     @foreach (var newsletter in Model)
     {
-        <div class="col s4">
-            <ol>
-                <li>
-                    <h4>@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</h4>
-                </li>
-            </ol>
+
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="@Url.Content(newsletter.Image)" alt="Image" />
+                </div>
+                <span class="card-title">@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</span>
+            </div>
         </div>
+
     }
-</div>
+    </div>
+
 
