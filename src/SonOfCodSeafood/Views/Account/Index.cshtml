@@ -12,7 +12,11 @@
     @foreach (var newsletter in Model)
     {
         <div class="col s4">
-            <h2>@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</h2>
+            <ol>
+                <li>
+                    <h4>@Html.ActionLink(newsletter.Title, "Details", "Newsletter", new { id = newsletter.NewsletterId })</h4>
+                </li>
+            </ol>
         </div>
     }
 </div>

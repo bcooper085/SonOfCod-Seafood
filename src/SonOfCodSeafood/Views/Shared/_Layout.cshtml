@@ -8,28 +8,30 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
+    <main>
         <nav>
             <div class="nav-wrapper">
                 <span class="title">@Html.ActionLink("Son of Cod", "Index", "Home")</span>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                   <li>@Html.ActionLink("Join Newsletter", "Create", "MailingList")</li>
-                     
+
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Newsletter", "Create", "Newsletter")</li>
-                        
+                        <li>@Html.ActionLink("Add To Mailing List", "Create", "MailingList")</li>
+                        <li>@Html.ActionLink("View Mailing List", "Details", "MailingList")</li>
+                        <li>@Html.ActionLink("Create Newsletter", "Create", "Newsletter")</li>
                         <li>@Html.ActionLink(User.Identity.Name, "Index", "Account")</li>
                         <li>
                             @using (Html.BeginForm("LogOff", "Account"))
                             {
-                                <input type="submit" id="logout" value="Logout" class="waves-effect waves-light btn"/>
+                                <input type="submit" id="logout" value="Logout" class="waves-effect waves-light btn" />
 
                             }
                         </li>
                     }
                     else
                     {
+                        <li>@Html.ActionLink("Newsletters", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Join Mailing List", "Create", "MailingList")</li>
                         <li>@Html.ActionLink("Register", "Register", "Account")</li>
                         <li>@Html.ActionLink("Login", "Login", "Account")</li>
                     }
@@ -39,6 +41,29 @@
         <div class="container">
             @RenderBody()
         </div>
-    </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Son Of Cod Fresh Fish</h5>
+                    <p class="grey-text text-lighten-4">Contact info@sonofcod.com.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 Copyright Son Of Cod
+                <a class="grey-text text-lighten-4 right" href="https://github.com/bcooper085">Created by Brandon Cooper</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

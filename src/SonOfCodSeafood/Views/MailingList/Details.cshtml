@@ -11,11 +11,11 @@
 {
     @foreach (var mailingList in Model)
     {
-        <div class="container">
-            <div>
-                @Html.ActionLink(mailingList.UserEmail, "Details", "MialingList", new { id = mailingList.MailingListId })
-            </div>
+        <div>           
+            <h3>Name: @Html.DisplayFor(modelItem => mailingList.UserName)</h3>
+            <h4>Email: @Html.DisplayFor(modelItem => mailingList.UserEmail)</h4>         
         </div>
+        <hr />
     }
 }
 else 
